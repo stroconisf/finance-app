@@ -10,7 +10,14 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>()
 
 // Enable CORS for the frontend
-app.use('/api/*', cors())
+app.use('/api/*', cors({
+  origin: '*', // Allows all origins (good for MVP/testing)
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+  exposeHeaders: ['Content-Length'],
+  maxAge: 600,
+  credentials: true,
+}))
 
 // Simple password hashing using Web Crypto API (SHA-256 for MVP)
 async function hashPassword(password: string) {
