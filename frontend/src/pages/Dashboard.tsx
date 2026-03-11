@@ -108,10 +108,8 @@ export default function Dashboard() {
       <div className="flex justify-between items-center mt-8">
         <h2 className="text-xl font-semibold">Transactions</h2>
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild>
-            <Button>
-              <PlusCircle className="mr-2 h-4 w-4" /> Add Transaction
-            </Button>
+          <DialogTrigger render={<Button />}>
+            <PlusCircle className="mr-2 h-4 w-4" /> Add Transaction
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>

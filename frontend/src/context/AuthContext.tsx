@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
-import { apiFetch } from '../lib/api'
+import React, { createContext, useContext, useState } from 'react'
 
 interface AuthContextType {
   token: string | null

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { useAuth } from '@/context/AuthContext'
 import { Wallet } from 'lucide-react'
 
@@ -47,17 +47,17 @@ export default function Home() {
         </p>
         <div className="flex gap-4">
           {isAuthenticated ? (
-            <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8">
-              <Link to="/dashboard">Go to Dashboard</Link>
-            </Button>
+            <Link to="/dashboard" className={buttonVariants({ size: "lg", className: "bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8" })}>
+              Go to Dashboard
+            </Link>
           ) : (
             <>
-              <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8">
-                <Link to="/login">Login</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full px-8 border-emerald-200 hover:bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:hover:bg-emerald-950 dark:text-emerald-400">
-                <Link to="/register">Create Account</Link>
-              </Button>
+              <Link to="/login" className={buttonVariants({ size: "lg", className: "bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-8" })}>
+                Login
+              </Link>
+              <Link to="/register" className={buttonVariants({ variant: "outline", size: "lg", className: "rounded-full px-8 border-emerald-200 hover:bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:hover:bg-emerald-950 dark:text-emerald-400" })}>
+                Create Account
+              </Link>
             </>
           )}
         </div>
